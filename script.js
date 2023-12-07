@@ -1,83 +1,84 @@
-// Objects
+// // this keyword
 
-// const fitbitData = [308727, 1826, 211.7];
+// // function greet(name) {
 
-/*
-totalSteps -> 308727
-totalFloors  -> 1826
-totalMiles -> 211.7
-*/
+// // }
 
-// const fitBitData = {
-//   totalSteps: 308727,
-//   totalFloors: 1826,
-//   totalMiles: 211.7,
-//   type: "walk",
-//   brand: null,
-//   isFitness: true,
-// };
+// // greet('Aditya')
 
-// // First way (Dot notation)
-// console.log(fitBitData.totalFloors);
-// console.log(fitBitData.brand);
+// // 5 ways to find out the `this` value
 
-// console.log(`The total steps taken is ${fitBitData.totalSteps}`);
+// // 1. Implicit Binding
 
-// // Second way (Square bracket notation)
+// // const user = {
+// //   name: "Miles Morales",
+// //   age: 27,
+// //   greet() {
+// //     // this -> {} -> user
+// //     console.log(this === user);
+// //     console.log(`Hello, I am ${this.name}`);
+// //   },
+// //   mother: {
+// //     name: "Stacey",
+// //     greet() {
+// //       // this -> {} -> mother
+// //       console.log(`Hello, I am ${this.name}`);
+// //     },
+// //   },
+// // };
 
-// const key = "isFitness";
+// // user.mother.greet();
 
-// console.log(fitBitData[key]);
-// fitBitData[key]
-// fitBitData["isFitness"]
+// // 2. Explicit Binding
 
-// const student = {
-//   maths: 99,
-//   sanskrit: 9,
-//   english: 85,
-//   social: 100,
-// };
+// // Shorthand properties
 
-// const key = "maths";
+// // function sayHello(userName, country) {
+// //   // this -> {} -> ???
+// //   console.log(this);
+// // }
 
-// console.log(student[key]);
-// // student["maths"] -> student.maths
+// // const user = {
+// //   id: 1,
+// //   city: "Hyderabad",
+// // };
 
-// const employee = {
-//   holidaysLeft: -10,
-//   courses: 10,
-//   targets: 100,
-//   salary: 99, // per year (including variable bonus)
-// };
+// // const newSayHello = sayHello.bind(user, "Miles Morales", "USA");
+// // newSayHello();
 
-// const property = "salary";
+// // Lexical Binding
 
-// console.log(employee[property]);
-
-// employee[property] -> employee["salary"] -> employee.salary
-
-const user = {
-  id: 1,
-  hobbies: ["Singing", "Dancing", { type: "Kuchipudi" }],
-  address: {
-    city: "Hyderabad",
-    state: "Telangana",
-    pin: 500018,
-  },
-};
-
-user.hobbies[2].type;
-
-// const array = [
-//   "Newton",
-//   {
-//     name: "School",
-//     score: [100.5, 789.9],
-//     address: {
-//       city: "Hyderabad",
-//     },
+// const user = {
+//   name: "Ranvijay",
+//   age: 36,
+//   passion: ["papa", "papa", "papa"],
+//   greet() {
+//     // this -> abhi
+//     const sayWhat = () => {
+//       const sayWhatElse = () => {
+//         console.log(this);
+//       };
+//       sayWhatElse();
+//     };
+//     sayWhat();
 //   },
-//   [10, 20],
-// ];
+// };
 
-// array[1].address.city;
+// const abhi = {
+//   id: 1,
+//   country: "USA",
+// };
+
+// user.greet(); // user
+// user.greet.call(abhi); // abhi
+
+// // Definition of 'this' keyword
+
+// // To re-use the same function/method
+// // with different context (object)
+
+// function sayBye() {
+//   console.log(this);
+// }
+
+// sayBye();
